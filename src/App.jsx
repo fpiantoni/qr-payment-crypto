@@ -17,7 +17,10 @@ class App extends React.Component{
     render() {
         console.log('State: ', this.state);
         return(
-            <div>
+            <div className="App">
+                <header className = "App-Header">
+                    <img src="/images/baas.jpeg" className="App-logo" alt="logo" />
+                </header>
                 <h1>Input Amount</h1>
                 <input type="number" onChange={this.getValaue}/>
                 <button onClick = {this.handleClick}>enter</button>
