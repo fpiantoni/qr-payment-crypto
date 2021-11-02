@@ -1,19 +1,8 @@
 import React from "react";
+import InputBox from "./components/InputBox";
 import PostList from "./components/PostList";
 
 class App extends React.Component{
-    getValaue = (event) => {
-        console.log('Event: ', event.target.value);
-
-        this.setState({value: event.target.value})
-    }
-
-    handleClick = (event) => {
-        event.preventDefault();
-        const value = this.state.value;
-
-        console.log('Value on Enter: ', value);
-    }
 
     render() {
         console.log('State: ', this.state);
@@ -22,9 +11,7 @@ class App extends React.Component{
                 <header className = "App-Header">
                     <img src="/images/baas.jpeg" className="App-logo" alt="logo" />
                 </header>
-                <h1>Input Amount</h1>
-                <input type="number" onChange={this.getValaue}/>
-                <button onClick = {this.handleClick}>enter</button>
+                <InputBox/>
                 <PostList/>
             </div>
         );

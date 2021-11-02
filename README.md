@@ -1,3 +1,9 @@
+# Bugs and solutions:
+
+There might be a problem with the project dependency tree. When doing `npm install`, sometime the package install the node_modules folder on the home directory and on the project directory, for this you should delete the node_modelues folder from the home directory and the project directore, ater that run an `npm install` again. After that try running `npm star` again.
+
+https://github.com/facebook/create-react-app/issues/5972
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
