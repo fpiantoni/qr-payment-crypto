@@ -1,4 +1,5 @@
 import React from "react";
+import PostList from "./components/PostList";
 
 class App extends React.Component{
     getValaue = (event) => {
@@ -24,6 +25,7 @@ class App extends React.Component{
                 <h1>Input Amount</h1>
                 <input type="number" onChange={this.getValaue}/>
                 <button onClick = {this.handleClick}>enter</button>
+                <PostList/>
             </div>
         );
     }
