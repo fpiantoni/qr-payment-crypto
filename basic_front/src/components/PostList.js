@@ -12,20 +12,43 @@ class PostList extends Component {
         }
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         axios.get(URL_amounts)
         .then(response => {
             console.log(response)
+            this.setState({posts: response.data})
         })
         .catch(error => {
             console.log(error)
         })
     }
+    */
+  getJsonData = () => {
+    fetch(URL_amounts, 
+        {method: 'GET'}).then((response) => response.json())
+           .then((responseJson) => {
+               console.log(responseJson);
+               this.setState({
+                   data: responseJson
+               })
+            })
+           .catch((error) => {
+               console.log(error)
+            });
+    }
+
+    componentDidMount = () => {
+        this.getJsonData()
+    }
+    
+
 
     render() {
+        const { posts } = this.state
         return (
             <div>
-                List of Amount Of transactions
+                Valor almacenados
+              
             </div>
         )
     }
