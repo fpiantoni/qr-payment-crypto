@@ -1,5 +1,6 @@
 import React from "react";
-import InputBox from "./components/InputBox";
+//import InputBox from "./components/InputBox";
+import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
 
 class App extends React.Component{
@@ -11,8 +12,10 @@ class App extends React.Component{
                 <header className = "App-Header">
                     <img src="/images/baas.jpeg" className="App-logo" alt="logo" />
                 </header>
-                <InputBox/>
+                {/* <InputBox/> */}
+                <PostForm/>
                 <PostList/>
+                
             </div>
         );
     }
