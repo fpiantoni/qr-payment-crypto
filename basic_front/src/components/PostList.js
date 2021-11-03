@@ -1,7 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import axios from 'axios'
 
-let URL_amounts = 'http://[::1]:3000/amounts';
+let URL_amounts = 'http://[::1]:3000/amounts/count';
+let contador;
+/*
+const [amounts, setCounts] = useState([]);
+
+function fetchamountcount() {
+    fetch(URL_amounts).then(response => {
+        response.json();
+    }).then(data => {
+        setCounts(data.count);
+    });
+}
+*/
 
 class PostList extends Component {
     constructor(props) {
@@ -12,7 +24,9 @@ class PostList extends Component {
         }
     }
 
-    /*componentDidMount() {
+    
+    /*
+    componentDidMount() {
         axios.get(URL_amounts)
         .then(response => {
             console.log(response)
@@ -21,13 +35,14 @@ class PostList extends Component {
         .catch(error => {
             console.log(error)
         })
-    }
-    */
+    } */
+
   getJsonData = () => {
     fetch(URL_amounts, 
         {method: 'GET'}).then((response) => response.json())
            .then((responseJson) => {
-               console.log(responseJson);
+               contador = responseJson.count;
+               console.log(contador);
                this.setState({
                    data: responseJson
                })
@@ -46,10 +61,9 @@ class PostList extends Component {
     render() {
         const { posts } = this.state
         return (
-            <div>
-                Valor almacenados
-              
-            </div>
+            <section>
+               
+            </section>
         )
     }
 }
