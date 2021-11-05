@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 let contador;
 let amount;
 const URL_counts = 'http://[::1]:3000/amounts/count';
-const URL_amount = 'http://[::1]:3000/amounts/';
 
 class PostList extends Component {
     constructor(props) {
@@ -19,7 +18,23 @@ class PostList extends Component {
         {method: 'GET'}).then((response) => response.json())
            .then((responseJson) => {
                contador = responseJson.count;
-               //console.log(contador);
+               console.log(contador);
+
+                    const URL_amount = 'http://[::1]:3000/amounts/' + contador;
+                    console.log(URL_amount);
+                    fetch(URL_amount)
+                            .then((response) => response.json())
+                            .then((responseJson) => {
+                                amount = responseJson.amount;
+                                console.log(responseJson);
+                                console.log(amount);
+                                    this.setState({
+                                        data: responseJson
+                                    })
+                                })
+                                .catch((error) => {
+                                    console.log(error)
+                                });
                this.setState({
                    data: responseJson
                })
@@ -27,20 +42,7 @@ class PostList extends Component {
            .catch((error) => {
                console.log(error)
             });
-
-    
-    fetch(URL_amount)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                amount = responseJson.amount;
-                console.log(responseJson);
-                this.setState({
-                    data: responseJson
-                })
-            })
-            .catch((error) => {
-                 console.log(error)
-            });
+  
         
     }
    /* 
