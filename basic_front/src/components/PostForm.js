@@ -6,7 +6,7 @@ export class PostForm extends Component {
         super(props)
      
         this.state = {
-            Amount:'',
+            Amount:[],
         }
     }
      
@@ -36,13 +36,13 @@ export class PostForm extends Component {
                             <h1>Input Amount</h1>
                         </div>
                         <input 
-                            type="number" 
+                            type="string" 
                             name="Amount" 
                             value={Amount} 
                             onChange={this.changeHandler}
                         />
                     </div>
-                    <button>SubmitPost</button>
+                    <button onClick>SubmitPost</button>
                 </form>
             </div>
         )

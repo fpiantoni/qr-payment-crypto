@@ -41,39 +41,19 @@ class PostList extends Component {
             })
            .catch((error) => {
                console.log(error)
-            });
-  
-        
+            }); 
     }
-   /* 
-    getAmountJsonData = () => {
-        console.log(contador);
-        const URL_amount = 'http://[::1]:3000/amounts/'+ contador;
-        fetch(URL_amount  ).then((response) => response.json())
-               .then((responseJson) => {
-                   amount = responseJson.amount;
-                   console.log(responseJson);
-                   this.setState({
-                       data: responseJson
-                   })
-                })
-               .catch((error) => {
-                   console.log(error)
-                });
-        }
-    */
+  
         componentDidMount = () => {
             this.getCountJsonData()
-            //this.getAmountJsonData()
         }
 
     render() {
         return (
-            <section>
-               
-            </section>
+            <section> </section>
         )
     }
 }
 
+export {amount};
 export default PostList
