@@ -1,19 +1,9 @@
-import React, { Component, useState } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react'
 
-let URL_amounts = 'http://[::1]:3000/amounts/count';
 let contador;
-/*
-const [amounts, setCounts] = useState([]);
-
-function fetchamountcount() {
-    fetch(URL_amounts).then(response => {
-        response.json();
-    }).then(data => {
-        setCounts(data.count);
-    });
-}
-*/
+let amount;
+const URL_counts = 'http://[::1]:3000/amounts/count';
+const URL_amount = 'http://[::1]:3000/amounts/';
 
 class PostList extends Component {
     constructor(props) {
@@ -24,25 +14,12 @@ class PostList extends Component {
         }
     }
 
-    
-    /*
-    componentDidMount() {
-        axios.get(URL_amounts)
-        .then(response => {
-            console.log(response)
-            this.setState({posts: response.data})
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    } */
-
-  getJsonData = () => {
-    fetch(URL_amounts, 
+  getCountJsonData = () => {
+    fetch(URL_counts, 
         {method: 'GET'}).then((response) => response.json())
            .then((responseJson) => {
                contador = responseJson.count;
-               console.log(contador);
+               //console.log(contador);
                this.setState({
                    data: responseJson
                })
@@ -50,16 +27,45 @@ class PostList extends Component {
            .catch((error) => {
                console.log(error)
             });
-    }
 
-    componentDidMount = () => {
-        this.getJsonData()
-    }
     
-
+    fetch(URL_amount)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                amount = responseJson.amount;
+                console.log(responseJson);
+                this.setState({
+                    data: responseJson
+                })
+            })
+            .catch((error) => {
+                 console.log(error)
+            });
+        
+    }
+   /* 
+    getAmountJsonData = () => {
+        console.log(contador);
+        const URL_amount = 'http://[::1]:3000/amounts/'+ contador;
+        fetch(URL_amount  ).then((response) => response.json())
+               .then((responseJson) => {
+                   amount = responseJson.amount;
+                   console.log(responseJson);
+                   this.setState({
+                       data: responseJson
+                   })
+                })
+               .catch((error) => {
+                   console.log(error)
+                });
+        }
+    */
+        componentDidMount = () => {
+            this.getCountJsonData()
+            //this.getAmountJsonData()
+        }
 
     render() {
-        const { posts } = this.state
         return (
             <section>
                
