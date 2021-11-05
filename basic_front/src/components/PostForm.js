@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+
+const URL_postamount = 'http://localhost:3000/amounts';
 export class PostForm extends Component {
     constructor(props) {
         super(props)
      
         this.state = {
-            Amount:[],
+            amount: '',
         }
     }
      
@@ -17,7 +19,7 @@ export class PostForm extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://[::1]:3000/amounts', this.state)
+        axios.post(URL_postamount, this.state)
         .then(response => {
             console.log(response)
         })
@@ -27,7 +29,7 @@ export class PostForm extends Component {
     }
   
     render() {
-        const {Amount} = this.state
+        const {amount} = this.state
         return (
             <div>
                 <form onSubmit={this.submitHandler}>
@@ -36,13 +38,13 @@ export class PostForm extends Component {
                             <h1>Input Amount</h1>
                         </div>
                         <input 
-                            type="string" 
-                            name="Amount" 
-                            value={Amount} 
+                            type="number" 
+                            name="amount" 
+                            value={amount} 
                             onChange={this.changeHandler}
                         />
                     </div>
-                    <button onClick>SubmitPost</button>
+                    <button>SubmitPost</button>
                 </form>
             </div>
         )
