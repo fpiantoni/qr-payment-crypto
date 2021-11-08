@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
-let URL_amounts = 'http://[::1]:3000/amounts';
+let contador;
+let amount;
+const URL_counts = 'http://[::1]:3000/amounts/count';
 
 class PostList extends Component {
     constructor(props) {
@@ -12,46 +13,47 @@ class PostList extends Component {
         }
     }
 
-    /*componentDidMount() {
-        axios.get(URL_amounts)
-        .then(response => {
-            console.log(response)
-            this.setState({posts: response.data})
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }
-    */
-  getJsonData = () => {
-    fetch(URL_amounts, 
+  getCountJsonData = () => {
+    fetch(URL_counts, 
         {method: 'GET'}).then((response) => response.json())
            .then((responseJson) => {
-               console.log(responseJson);
+               contador = responseJson.count;
+               console.log(contador);
+
+                    const URL_amount = 'http://[::1]:3000/amounts/' + contador;
+                    console.log(URL_amount);
+                    fetch(URL_amount)
+                            .then((response) => response.json())
+                            .then((responseJson) => {
+                                amount = responseJson.amount;
+                                console.log(responseJson);
+                                console.log(amount);
+                                    this.setState({
+                                        data: responseJson
+                                    })
+                                })
+                                .catch((error) => {
+                                    console.log(error)
+                                });
                this.setState({
                    data: responseJson
                })
             })
            .catch((error) => {
                console.log(error)
-            });
+            }); 
     }
-
-    componentDidMount = () => {
-        this.getJsonData()
-    }
-    
-
+  
+        componentDidMount = () => {
+            this.getCountJsonData()
+        }
 
     render() {
-        const { posts } = this.state
         return (
-            <div>
-                Valor almacenados
-              
-            </div>
+            <section> </section>
         )
     }
 }
 
+export {amount};
 export default PostList

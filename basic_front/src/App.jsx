@@ -2,6 +2,7 @@ import React from "react";
 import InputBox from "./components/InputBox";
 //import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
+//import { amount } from "./components/PostList"
 
 class App extends React.Component{
 

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+
+const URL_postamount = 'http://localhost:3000/amounts';
 export class PostForm extends Component {
     constructor(props) {
         super(props)
      
         this.state = {
-            Amount:'',
+            amount: '',
         }
     }
      
@@ -17,7 +19,7 @@ export class PostForm extends Component {
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://[::1]:3000/amounts', this.state)
+        axios.post(URL_postamount, this.state)
         .then(response => {
             console.log(response)
         })
@@ -51,7 +53,11 @@ makeGetRequest();
                         </div>
                         <input 
                             type="number" 
+<<<<<<< HEAD
                             name="Amount" 
+=======
+                            name="amount" 
+>>>>>>> 1be6fac21ac98220acb34acbdd3ca56ecfbcb067
                             value={amount} 
                             onChange={this.changeHandler}
                         />
