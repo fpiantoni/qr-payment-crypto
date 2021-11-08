@@ -13,14 +13,17 @@ class InputBox extends React.Component{
 
         console.log('Value on Enter: ', value);
     }
+    
 
     render() {
         console.log('State: ', this.state);
         return(
             <div>
-                <h1>Input Amount</h1>
-                <input type="number" onChange={this.getValaue}/>
-                <button onClick = {this.handleClick}>enter</button>
+                <form onSubmit={this.submitHandler}>
+                    <h1>Input Amount</h1>
+                    <input type="number" onChange={this.getValaue}/>
+                    <button onClick = {this.handleClick}>submit</button>
+                </form>
             </div>
         );
     }

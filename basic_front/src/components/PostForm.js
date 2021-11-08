@@ -25,9 +25,23 @@ export class PostForm extends Component {
             console.log(error)
         })
     }
+
+    const axios = require('axios');
+
+    async function makeGetRequest() {
+
+    let postdata = { amount: amount};
+
+    let res = await axios.post('http://[::1]:3000/amounts', postdata);
+
+    let data = res.data;
+    console.log(data);
+}
+
+makeGetRequest();
   
     render() {
-        const {Amount} = this.state
+        const {amount} = this.state
         return (
             <div>
                 <form onSubmit={this.submitHandler}>
@@ -38,7 +52,7 @@ export class PostForm extends Component {
                         <input 
                             type="number" 
                             name="Amount" 
-                            value={Amount} 
+                            value={amount} 
                             onChange={this.changeHandler}
                         />
                     </div>
