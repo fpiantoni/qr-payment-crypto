@@ -13,7 +13,7 @@ class App extends React.Component{
                 <header className = "App-Header">
                     <img src="/images/baas.jpeg" className="App-logo" alt="logo" />
                 </header>
-                <InputBox/> 
+                <InputBox/>
                 {/* <PostForm/> */}
                 <PostList/>
                 
