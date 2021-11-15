@@ -1,4 +1,4 @@
-#QR payment gateway
+QR payment gateway
 
 
 We are Baas256, a company focused on blockchain development, and we have been working on this hackathon to bring a solution for blockchain and defi integration to the real world. We are a small team of four people, based in Cordoba, Argentina4
